@@ -436,7 +436,7 @@
       const ray = scene.createPickingRay(scene.pointerX, scene.pointerY, BABYLON.Matrix.Identity(), camera);
       const {pickedMesh} = scene.pickWithRay(ray);
       if(pickedMesh){
-        // if(window.ReactNativeWebView) window.ReactNativeWebView.postMessage(pickedMesh.id);
+        if(window.ReactNativeWebView) window.ReactNativeWebView.postMessage(pickedMesh.id);
         const picked = nodeMesh.instances.find(instance=>instance.id==pickedMesh.id)
         picked.instancedBuffers.color = BABYLON.Color3.White();
         camera.setTarget(picked.position);
